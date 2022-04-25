@@ -1,9 +1,9 @@
 const contractAddress = "0xD27c2089402756e1a26184389826DBf95178D6bF"; //Replace with your own contract address
-const chain = 'rinkeby'; // rinkeby or polygon
+const chain = 'polygon'; // rinkeby or polygon
 
-const welcome_h1 = "Welcome Friends to the CodeCats NFT Project!!";
+const welcome_h1 = "Welcome to the Block Peeps Bros NFT Project!!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
-const welcome_p = 'The CodeCats NFT Project is a decentralized, open-source project that aims to demonstrate how to develope and launch your own NFT Collection. Follow step by step on the <a href="https://youtube.com/codestackr"  target="_blank" rel="noopener noreferrer">codeSTACKr</a> YouTube channel.';
+const welcome_p = 'The coolest block on the chain reimagining strong, loving and inspiring bros. Block Peeps Bros is a 10K collection that provides a realistic avatar for owners but with character traits that exemplify the fun and exciting nature and creative possibilities of the metaverse.  Mint your collectible Block Peeps Bro and join the club.';
 const h1_presale_coming_soon = "NFT Drop Coming Soon!!";
 const h1_presale_mint = "Pre-Sale Minting Open!!";
 const h1_public_mint = "Public Minting Open!!";
