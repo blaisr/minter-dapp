@@ -1,7 +1,7 @@
 const contractAddress = "0x2aE25a8A905Ac7E0098c53E11487A8B972555AbD"; //Replace with your own contract address
 const chain = 'polygon'; // rinkeby or polygon
 
-const welcome_h1 = "Welcome to the Block Peeps Bros NFT Project!!";
+const welcome_h1 = "Welcome to the Block Peeps Bros NFT Project!";
 const welcome_h2 = "Connect to MetaMask to Get Started";
 const welcome_p = 'The coolest block on the chain reimagining strong, loving and inspiring bros. Block Peeps Bros is a 10K collection that provides a realistic avatar for owners but with character traits that exemplify the fun and exciting nature and creative possibilities of the metaverse.  Mint your collectible Block Peeps Bro and join the club.';
 const h1_presale_coming_soon = "NFT Drop Coming Soon!!";
