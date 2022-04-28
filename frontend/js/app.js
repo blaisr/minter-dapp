@@ -10,6 +10,13 @@ window.addEventListener("DOMContentLoaded", async () => {
   welcomeH2.innerText = welcome_h2;
   welcomeP.innerHTML = welcome_p;
 
+  const connectWalletActionBtn = document.getElementById(
+    "connectWalletActionBtn"
+  );
+  connectWalletActionBtn.onclick = () => {
+    document.getElementById("connectWallet").click();
+  };
+
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
     checkChain();
@@ -313,18 +320,30 @@ async function mint() {
     try {
       const mintTransaction = await contract.methods
         .mint(amount)
-        .send({ from: window.address, value: value.toString() });
-      if(mintTransaction) {
-        if(chain === 'rinkeby') {
-          const url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
-          const mintedContainer = document.querySelector('.minted-container');
-          const countdownContainer = document.querySelector('.countdown');
-          const mintedTxnBtn = document.getElementById("mintedTxnBtn");
-          mintedTxnBtn.href = url;
-          countdownContainer.classList.add('hidden');
-          mintedContainer.classList.remove('hidden');
+        .send({
+          from: window.address,
+          value: value.toString(),
+          maxPriorityFeePerGas: null,
+          maxFeePerGas: null,
+        });
+      if (mintTransaction) {
+        let url = "";
+        if (chain === "rinkeby") {
+          url = `https://rinkeby.etherscan.io/tx/${mintTransaction.transactionHash}`;
+        } else if (chain === "polygon") {
+          url = `https://polygonscan.com/tx/${mintTransaction.transactionHash}`;
         }
-        console.log("Minuted successfully!", `Transaction Hash: ${mintTransaction.transactionHash}`);
+        const mintedContainer = document.querySelector(".minted-container");
+        const countdownContainer = document.querySelector(".countdown");
+        const mintedTxnBtn = document.getElementById("mintedTxnBtn");
+        mintedTxnBtn.href = url;
+        countdownContainer.classList.add("hidden");
+        mintedContainer.classList.remove("hidden");
+
+        console.log(
+          "Minuted successfully!",
+          `Transaction Hash: ${mintTransaction.transactionHash}`
+        );
       } else {
         const mainText = document.getElementById("mainText");
         mainText.innerText = mint_failed;
