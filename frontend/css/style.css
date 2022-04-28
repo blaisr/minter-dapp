@@ -1,6 +1,6 @@
 /* FONTS */
 
-@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 /* GLOBAL STYLES */
 
@@ -25,9 +25,9 @@
 
 body {
   background-color: var(--bg-color);
-  display: flex;
-  flex-flow: column;
-  height: 100vh;
+  /* display: flex;
+  flex-flow: column; */
+  min-height: 100vh;
   color: var(--font-color);
   font-family: var(--font-primary);
 }
@@ -40,6 +40,18 @@ body {
   padding: 1rem 2rem;
   justify-content: center;
   overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+h1 {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  font-style: italic;
+  margin: 2rem 0;
+  font-size: 3.5rem;
 }
 
 /* HEADER */
@@ -55,9 +67,21 @@ header .container {
   align-items: center;
 }
 
+header .logo a {
+  text-shadow: 1px 1px 0 var(--accent-color);
+  font-style: italic;
+  font-size: 1.7rem;
+}
+
 .menu {
   display: flex;
   gap: 2rem;
+  align-items: center;
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 90px);
+  display: flex;
   align-items: center;
 }
 
@@ -81,7 +105,7 @@ header .container {
   text-shadow: 2px 2px 0 var(--accent-color);
   font-style: italic;
   margin: 2rem 0;
-  font-size: 3.5rem;
+  font-size: 4rem;
 }
 
 .not-connected p {
@@ -92,7 +116,7 @@ header .container {
 
 .not-connected a {
   text-decoration: none;
-  color: var(--accent-color);
+  color: var(--bg-color);
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -103,7 +127,7 @@ header .container {
   display: inline-block;
   padding: 1rem 2rem;
   background: var(--btn-bg-color);
-  color: var(--accent-color);
+  color: var(--bg-color);
   font-family: var(--font-secondary);
   font-style: italic;
   font-weight: bold;
@@ -185,7 +209,7 @@ section {
 }
 .countdown .clock-item .count-number {
   background: var(--accent-color);
-  color: var(--font-color);
+  color: #313131;
   font-size: 2rem;
   font-weight: 700;
   font-family: var(--font-secondary);
@@ -318,24 +342,27 @@ section {
 
 .splide {
   position: absolute;
-  top: 90px;
+  top: 120px;
   left: 5rem;
   z-index: -1;
+  max-height: 100vh;
 }
 
-.splide__slide {
+.splide .splide__track {
+  max-height: 100vh;
+}
+.splide .splide__slide {
   border: var(--accent-color) solid;
   border-width: 5px 10px;
 }
 
-.splide__slide img {
+.splide .splide__slide img {
   width: 100%;
 }
 
 .splide-2 .splide__slide img {
   width: 20vw;
 }
-
 
 /* COLLABORATION */
 
@@ -727,11 +754,6 @@ footer {
   color: var(--bg-color);
 }
 
-
-
-
-
-
 /* SPINNER */
 .dot-spin {
   position: absolute;
@@ -743,13 +765,21 @@ footer {
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 768px) {
+  .logo img {
+    width: 25vw;
+    margin-right: 10vw;
+  }
   .menu {
     gap: 1rem;
   }
+  .menu img {
+    width: 5vw;
+  }
   .wallet-btn {
     margin-left: 0;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.5rem;
     max-width: 8rem;
+    font-size: 0.75rem;
   }
   .not-connected {
     background-color: var(--bg-color-transparent);
@@ -757,9 +787,19 @@ footer {
     padding: 2rem;
     margin: 0 auto;
   }
+  .not-connected h1 {
+    font-size: 2.5rem;
+  }
+  .not-connected h2 {
+    font-size: 1.5rem;
+  }
+  .not-connected p, .not-connected a {
+    font-size: 1rem;
+  }
   .countdown ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
   }
   .countdown .clock-item {
     width: 100%;
